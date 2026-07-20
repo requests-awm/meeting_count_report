@@ -1,0 +1,25 @@
+{
+  "name": "meeting-count-agent",
+  "version": "0.1.0",
+  "description": "Reusable tool to count Review/F2F/Video/Telephone meetings over a 365-day window by merging Google Calendar + Asana.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "report": "node src/index.js",
+    "preview": "node src/report-html.js",
+    "report:preview": "node src/index.js && node src/report-html.js",
+    "serve": "node src/server.js",
+    "favicon": "node src/generate-favicon.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "googleapis": "^144.0.0",
+    "luxon": "^3.5.0"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.3"
+  }
+}

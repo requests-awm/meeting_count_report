@@ -1,0 +1,21 @@
+# Never ship secrets or generated/local artifacts into the image
+.env
+.env.example
+service-account.json
+*.local.json
+
+node_modules
+out/
+results.json
+results.csv
+results-by-advisor.csv
+
+web/
+.git/
+.gitignore
+*.log
+npm-debug.log*
+
+PLAN.md
+README.md
+assets/README.md

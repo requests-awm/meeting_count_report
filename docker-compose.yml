@@ -1,0 +1,26 @@
+services:
+  meeting-report:
+    build: .
+    image: ascot/meeting-report:latest
+    container_name: ascot-meeting-report
+    ports:
+      - "8080:8080"
+    # Secrets (Google OAuth + Asana) come from your local .env at runtime —
+    # they are never baked into the image.
+    env_file:
+      - .env
+    environment:
+      REPORT_INTERVAL_HOURS: "24"
+      # Pin a fixed window (else it defaults to the last completed fiscal year):
+      # REPORT_START: "2025-07-01"
+      # REPORT_END:   "2026-07-01"
+      # Protect the dashboard behind Basic Auth (recommended if internet-exposed):
+      # BASIC_AUTH_USER: "ascot"
+      # BASIC_AUTH_PASS: "change-me"
+    volumes:
+      # Persist the generated report across restarts (optional).
+      - report-out:/app/out
+    restart: unless-stopped
+
+volumes:
+  report-out:

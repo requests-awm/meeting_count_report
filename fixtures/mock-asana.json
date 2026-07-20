@@ -1,0 +1,35 @@
+[
+  {
+    "source": "asana",
+    "id": "asana:101",
+    "title": "Annual Review - Video with Smith",
+    "start": "2025-08-12T10:00:00+02:00",
+    "advisor": "jane.doe@ascotwm.com",
+    "client": null,
+    "accepted": null,
+    "completed": true,
+    "structuredType": null
+  },
+  {
+    "source": "asana",
+    "id": "asana:102",
+    "title": "Telephone call - quick check-in",
+    "start": "2025-10-20T09:30:00+02:00",
+    "advisor": "john.smith@ascotwm.com",
+    "client": null,
+    "accepted": null,
+    "completed": false,
+    "structuredType": null
+  },
+  {
+    "source": "asana",
+    "id": "asana:103",
+    "title": "In-person meeting - Adams estate planning",
+    "start": "2026-03-11T15:00:00+02:00",
+    "advisor": "jane.doe@ascotwm.com",
+    "client": null,
+    "accepted": null,
+    "completed": true,
+    "structuredType": null
+  }
+]

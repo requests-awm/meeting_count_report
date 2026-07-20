@@ -1,0 +1,54 @@
+{
+  "timezone": "Europe/London",
+  "fiscalYearStartMonth": 7,
+  "advisorDomain": "ascotwm.com",
+
+  "calendars": [
+    { "name": "AWM Review Meeting",       "firm": "AWM",      "category": "review",    "id": "ascotwm.com_roidl01oqnfkso7m38fpid249g@group.calendar.google.com" },
+    { "name": "AWM First Meeting",        "firm": "AWM",      "category": "first",     "id": "ascotwm.com_24dheuumo8s1t9p77t7b9k4s48@group.calendar.google.com" },
+    { "name": "AWM Follow Up Meeting",    "firm": "AWM",      "category": "follow_up", "id": "ascotwm.com_hs7e460qv2utiones0nultujjs@group.calendar.google.com" },
+
+    { "name": "AEP First Meeting",        "firm": "AEP",      "category": "first",     "id": "c_4b7fefad482b78e5fd3632ece8b3137efc0727970ede5f0bb5e283525dd2ae2f@group.calendar.google.com" },
+    { "name": "AEP Follow Up Meeting",    "firm": "AEP",      "category": "follow_up", "id": "c_1a44cf3a6dd6892824ac748c7868c8a4208eaeba6c77c6a0a261a3a229be0bf0@group.calendar.google.com" },
+
+    { "name": "Chambers First Meeting",   "firm": "Chambers", "category": "first",     "id": "c_08d91486ba7bc15f40f1ae5ea915f61f5c1dd27f3587840bae0761b81e682544@group.calendar.google.com" },
+    { "name": "Chambers Follow Up",       "firm": "Chambers", "category": "follow_up", "id": "c_df6cf7721f53c880be961d5c5fc05caee2a319f6603beb47df539ebece4ec15b@group.calendar.google.com" },
+    { "name": "Chambers Review Meeting",  "firm": "Chambers", "category": "review",    "id": "c_e77d4f758e3d5f16e0a7cbcaaf8d9ba48d9d3d84cbd4fa9235f37fad89127f99@group.calendar.google.com" }
+  ],
+  "_comment_calendars": "Each event title is expected as: 'ML - <Client> - <InsightlyID> - <adviser@email> - <Meeting Type> <Modality>'. Category is taken from the calendar; modality/adviser/client are parsed from the title.",
+
+  "classification": {
+    "modalityKeywords": {
+      "video": ["video", "zoom", "teams", "google meet", "gmeet", "online", "virtual", "vc"],
+      "face_to_face": ["f2f", "face to face", "face-to-face", "in person", "in-person"],
+      "telephone": ["telephone", "phone", "tel call", "t/c"]
+    },
+    "modalityPrecedence": ["face_to_face", "video", "telephone"],
+    "reviewKeywords": ["review"],
+    "locationVideoKeywords": ["zoom", "teams", "meet.google", "google meet", "webex", "http://", "https://"],
+    "locationTelephoneKeywords": ["phone", "telephone", "tel call", "call"],
+    "locationJunk": ["n/a", "na", "tbc", "tbd", "team hc", "scheduling", "home visit tbc", "to be confirmed", "-"],
+    "_comment": "Modality is first taken from the title. If absent, it is inferred from the event location / conferencing link. Junk locations and empty ones stay 'unspecified'. Physical addresses (anything not a URL, phone, or junk) are treated as face_to_face."
+  },
+
+  "exclude": {
+    "requirePrefix": "ml",
+    "titleKeywords": ["befor meet", "days before", "reminder", "birthday", "office", " - ep", "estate planning meet"],
+    "_comment": "requirePrefix: only events whose title starts with this token (case-insensitive, e.g. 'ML') are treated as client meetings. titleKeywords also force-exclude. Everything excluded is logged as noise, not counted."
+  },
+
+  "asana": {
+    "enabled": false,
+    "reviewProjectGid": "5844333827020",
+    "_comment": "Asana is not used for counting (calendar is authoritative per 'non-cancelled = happened'). Kept here for future cross-referencing."
+  },
+
+  "advisorAliases": {},
+  "_comment_aliases": "Optional manual name->email overrides for advisors whose name in titles doesn't match their email, e.g. { \"cat mccarron\": \"catriona.mccarron@ascotwm.com\" }.",
+
+  "output": {
+    "csvPath": "results.csv",
+    "advisorCsvPath": "results-by-advisor.csv",
+    "jsonPath": "results.json"
+  }
+}
